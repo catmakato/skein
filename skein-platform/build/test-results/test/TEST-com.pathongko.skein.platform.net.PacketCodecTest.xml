@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.platform.net.PacketCodecTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:24:04" hostname="LAPTOP-I9TEDLCI" time="0.212">
+  <properties/>
+  <testcase name="sessionDenialRoundTrips()" classname="com.pathongko.skein.platform.net.PacketCodecTest" time="0.196"/>
+  <testcase name="handshakeReplyRoundTrips()" classname="com.pathongko.skein.platform.net.PacketCodecTest" time="0.01"/>
+  <testcase name="sessionGrantRoundTrips()" classname="com.pathongko.skein.platform.net.PacketCodecTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
