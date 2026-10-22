@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.transfer.retry.DefaultRetryPolicyTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:26" hostname="LAPTOP-I9TEDLCI" time="0.031">
+  <properties/>
+  <testcase name="integrityFailureDiscardsPartialAndRotatesMirrorWhenAvailable()" classname="com.pathongko.skein.transfer.retry.DefaultRetryPolicyTest" time="0.009"/>
+  <testcase name="transientResumesWithoutDiscardingPartial()" classname="com.pathongko.skein.transfer.retry.DefaultRetryPolicyTest" time="0.001"/>
+  <testcase name="permanentFailuresAreNotRetried()" classname="com.pathongko.skein.transfer.retry.DefaultRetryPolicyTest" time="0.001"/>
+  <testcase name="stopsAfterMaxAttempts()" classname="com.pathongko.skein.transfer.retry.DefaultRetryPolicyTest" time="0.001"/>
+  <testcase name="resumableResetDiscardsPartialButKeepsMirror()" classname="com.pathongko.skein.transfer.retry.DefaultRetryPolicyTest" time="0.002"/>
+  <testcase name="integrityWithNoMirrorsDoesNotRotate()" classname="com.pathongko.skein.transfer.retry.DefaultRetryPolicyTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

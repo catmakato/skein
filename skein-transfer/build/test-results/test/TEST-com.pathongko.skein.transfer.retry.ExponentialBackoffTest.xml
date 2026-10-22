@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.transfer.retry.ExponentialBackoffTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:26" hostname="LAPTOP-I9TEDLCI" time="0.012">
+  <properties/>
+  <testcase name="doublesEachAttempt()" classname="com.pathongko.skein.transfer.retry.ExponentialBackoffTest" time="0.001"/>
+  <testcase name="hugeAttemptDoesNotOverflow()" classname="com.pathongko.skein.transfer.retry.ExponentialBackoffTest" time="0.001"/>
+  <testcase name="clampsToCap()" classname="com.pathongko.skein.transfer.retry.ExponentialBackoffTest" time="0.001"/>
+  <testcase name="fullJitterStaysWithinComputedDelay()" classname="com.pathongko.skein.transfer.retry.ExponentialBackoffTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

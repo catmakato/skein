@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.transfer.download.DefaultFileDownloaderTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:26" hostname="LAPTOP-I9TEDLCI" time="0.471">
+  <properties/>
+  <testcase name="downloadsAndVerifiesHappyPath()" classname="com.pathongko.skein.transfer.download.DefaultFileDownloaderTest" time="0.401"/>
+  <testcase name="resumesAfterMidStreamDropWithCorrectHash()" classname="com.pathongko.skein.transfer.download.DefaultFileDownloaderTest" time="0.029"/>
+  <testcase name="rotatesToGoodMirrorOnHashMismatch()" classname="com.pathongko.skein.transfer.download.DefaultFileDownloaderTest" time="0.036"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
