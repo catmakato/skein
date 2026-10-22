@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.bootstrap.EndpointProbeTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:01" hostname="LAPTOP-I9TEDLCI" time="0.224">
+  <properties/>
+  <testcase name="findsARealSkeinServer(Path)" classname="com.pathongko.skein.bootstrap.EndpointProbeTest" time="0.171"/>
+  <testcase name="rejectsAnUnreachableHost()" classname="com.pathongko.skein.bootstrap.EndpointProbeTest" time="0.008"/>
+  <testcase name="rejectsA404()" classname="com.pathongko.skein.bootstrap.EndpointProbeTest" time="0.026"/>
+  <testcase name="rejectsANonSkeinServerReturningNonManifestBody()" classname="com.pathongko.skein.bootstrap.EndpointProbeTest" time="0.014"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:02" hostname="LAPTOP-I9TEDLCI" time="0.073">
+  <properties/>
+  <testcase name="unversionedFileIsTreatedAsEmpty(Path)" classname="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" time="0.009"/>
+  <testcase name="malformedContentIsTreatedAsEmpty(Path)" classname="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" time="0.007"/>
+  <testcase name="emptyWhenNeverWritten(Path)" classname="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" time="0.003"/>
+  <testcase name="putWithAnEmbeddedNewlineDoesNotClobberAPreviouslyWrittenEntry(Path)" classname="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" time="0.008"/>
+  <testcase name="roundTrips(Path)" classname="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" time="0.007"/>
+  <testcase name="putWithAnEmbeddedNewlineInTheUrlDoesNotCorruptTheFile(Path)" classname="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" time="0.003"/>
+  <testcase name="puttingTheSameAddressAgainOverwritesTheOldValue(Path)" classname="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" time="0.011"/>
+  <testcase name="puttingANewAddressPreservesExistingOnes(Path)" classname="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" time="0.01"/>
+  <testcase name="unknownAddressIsEmpty(Path)" classname="com.pathongko.skein.bootstrap.RememberedEndpointCacheTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

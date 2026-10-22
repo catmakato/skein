@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.bootstrap.SkeinClientSessionTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:02" hostname="LAPTOP-I9TEDLCI" time="5.171">
+  <properties/>
+  <testcase name="secondRunTakesUpToDateFastPath(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="0.096"/>
+  <testcase name="secondSyncQuarantinesAModDroppedFromThePackButKeepsAPlayerAddedMod(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="0.146"/>
+  <testcase name="ledgerSurvivesAFailedSyncAndAppliesCorrectlyOnTheNextSuccess(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="0.138"/>
+  <testcase name="syncsMissingModIntoModsDir(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="0.157"/>
+  <testcase name="syncsFromAnEndpointWithoutAGrant(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="0.147"/>
+  <testcase name="failsGracefullyOnUnreachableServer(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="0.017"/>
+  <testcase name="pruningRemovesAnOldQuarantineBatchDuringASync(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="0.12"/>
+  <testcase name="ledgerSurvivesADownloadFailureThatHappensAfterTheDiffHasAlreadyRun(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="4.268"/>
+  <testcase name="deniedGrantFailsFastWithoutAttemptingASync(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="0.003"/>
+  <testcase name="unchangedFileNeverFetchedBySkeinIsNeverQuarantinedEvenAfterThePackDropsIt(Path)" classname="com.pathongko.skein.bootstrap.SkeinClientSessionTest" time="0.071"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Exception in thread "pool-8-thread-1" java.lang.AssertionError
+	at jdk.httpserver/sun.net.httpserver.WriteFinishedEvent.<init>(WriteFinishedEvent.java:31)
+	at jdk.httpserver/sun.net.httpserver.FixedLengthOutputStream.close(FixedLengthOutputStream.java:102)
+	at jdk.httpserver/sun.net.httpserver.PlaceholderOutputStream.close(ExchangeImpl.java:474)
+	at com.pathongko.skein.server.http.SkeinHttpServer.serveFile(SkeinHttpServer.java:150)
+	at com.pathongko.skein.server.http.SkeinHttpServer.route(SkeinHttpServer.java:105)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:95)
+	at jdk.httpserver/sun.net.httpserver.AuthFilter.doFilter(AuthFilter.java:82)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:98)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange$LinkHandler.handle(ServerImpl.java:853)
+	at jdk.httpserver/com.sun.net.httpserver.Filter$Chain.doFilter(Filter.java:95)
+	at jdk.httpserver/sun.net.httpserver.ServerImpl$Exchange.run(ServerImpl.java:820)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+]]></system-err>
+</testsuite>

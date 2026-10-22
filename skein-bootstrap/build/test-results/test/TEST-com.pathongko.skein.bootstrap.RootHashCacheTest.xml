@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.bootstrap.RootHashCacheTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:02" hostname="LAPTOP-I9TEDLCI" time="0.02">
+  <properties/>
+  <testcase name="readIsSafeOnGarbage(Path)" classname="com.pathongko.skein.bootstrap.RootHashCacheTest" time="0.008"/>
+  <testcase name="roundTrips(Path)" classname="com.pathongko.skein.bootstrap.RootHashCacheTest" time="0.006"/>
+  <testcase name="emptyWhenAbsent(Path)" classname="com.pathongko.skein.bootstrap.RootHashCacheTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

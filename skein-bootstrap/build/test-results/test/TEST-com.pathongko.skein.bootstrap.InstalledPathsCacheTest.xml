@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.bootstrap.InstalledPathsCacheTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:01" hostname="LAPTOP-I9TEDLCI" time="0.077">
+  <properties/>
+  <testcase name="unversionedFileIsTreatedAsEmpty(Path)" classname="com.pathongko.skein.bootstrap.InstalledPathsCacheTest" time="0.009"/>
+  <testcase name="malformedContentIsTreatedAsEmpty(Path)" classname="com.pathongko.skein.bootstrap.InstalledPathsCacheTest" time="0.011"/>
+  <testcase name="emptyWhenNeverWritten(Path)" classname="com.pathongko.skein.bootstrap.InstalledPathsCacheTest" time="0.004"/>
+  <testcase name="roundTrips(Path)" classname="com.pathongko.skein.bootstrap.InstalledPathsCacheTest" time="0.016"/>
+  <testcase name="writeWithAnEmbeddedNewlineDoesNotCorruptTheFile(Path)" classname="com.pathongko.skein.bootstrap.InstalledPathsCacheTest" time="0.003"/>
+  <testcase name="writeWithAnEmbeddedCarriageReturnDoesNotCorruptTheFile(Path)" classname="com.pathongko.skein.bootstrap.InstalledPathsCacheTest" time="0.005"/>
+  <testcase name="emptySetRoundTrips(Path)" classname="com.pathongko.skein.bootstrap.InstalledPathsCacheTest" time="0.009"/>
+  <testcase name="writeWithAnEmbeddedNewlineDoesNotClobberAPreviouslyWrittenLedger(Path)" classname="com.pathongko.skein.bootstrap.InstalledPathsCacheTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

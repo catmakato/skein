@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.bootstrap.MinecraftWhitelistTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:02" hostname="LAPTOP-I9TEDLCI" time="0.043">
+  <properties/>
+  <testcase name="comparisonIsCaseInsensitive(Path)" classname="com.pathongko.skein.bootstrap.MinecraftWhitelistTest" time="0.006"/>
+  <testcase name="containsReturnsFalseForAnUnlistedUuid(Path)" classname="com.pathongko.skein.bootstrap.MinecraftWhitelistTest" time="0.005"/>
+  <testcase name="missingFileFailsClosed(Path)" classname="com.pathongko.skein.bootstrap.MinecraftWhitelistTest" time="0.006"/>
+  <testcase name="emptyWhitelistContainsNobody(Path)" classname="com.pathongko.skein.bootstrap.MinecraftWhitelistTest" time="0.005"/>
+  <testcase name="malformedJsonFailsClosed(Path)" classname="com.pathongko.skein.bootstrap.MinecraftWhitelistTest" time="0.01"/>
+  <testcase name="containsReturnsTrueForAListedUuid(Path)" classname="com.pathongko.skein.bootstrap.MinecraftWhitelistTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Skein] could not read whitelist C:\Users\ASUS\AppData\Local\Temp\junit6429691197216989729\does-not-exist.json: C:\Users\ASUS\AppData\Local\Temp\junit6429691197216989729\does-not-exist.json
+[Skein] could not read whitelist C:\Users\ASUS\AppData\Local\Temp\junit6429691197216989729\does-not-exist.json: C:\Users\ASUS\AppData\Local\Temp\junit6429691197216989729\does-not-exist.json
+[Skein] could not read whitelist C:\Users\ASUS\AppData\Local\Temp\junit18411613903793860232\whitelist.json: expected '"' but got 'n' at index 1
+[Skein] could not read whitelist C:\Users\ASUS\AppData\Local\Temp\junit18411613903793860232\whitelist.json: expected '"' but got 'n' at index 1
+]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.bootstrap.SkeinJoinSyncTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:07" hostname="LAPTOP-I9TEDLCI" time="0.087">
+  <properties/>
+  <testcase name="discoverReturnsEmptyWhenNothingAnswers(Path)" classname="com.pathongko.skein.bootstrap.SkeinJoinSyncTest" time="0.009"/>
+  <testcase name="discoverFindsALiveServer(Path)" classname="com.pathongko.skein.bootstrap.SkeinJoinSyncTest" time="0.026"/>
+  <testcase name="syncFromDownloadsThePack(Path)" classname="com.pathongko.skein.bootstrap.SkeinJoinSyncTest" time="0.05"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

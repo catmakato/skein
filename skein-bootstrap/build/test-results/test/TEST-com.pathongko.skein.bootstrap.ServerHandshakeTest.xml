@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.bootstrap.ServerHandshakeTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:02" hostname="LAPTOP-I9TEDLCI" time="0.087">
+  <properties/>
+  <testcase name="gateOnAndUnlistedPlayerIsDenied(Path)" classname="com.pathongko.skein.bootstrap.ServerHandshakeTest" time="0.016"/>
+  <testcase name="gateOnAndUnreadableWhitelistFailsClosed(Path)" classname="com.pathongko.skein.bootstrap.ServerHandshakeTest" time="0.014"/>
+  <testcase name="gateOnAndWhitelistedPlayerIsGranted(Path)" classname="com.pathongko.skein.bootstrap.ServerHandshakeTest" time="0.017"/>
+  <testcase name="bootstrapRepliesToSender()" classname="com.pathongko.skein.bootstrap.ServerHandshakeTest" time="0.014"/>
+  <testcase name="grantCarriesEndpointAndRootHashWhenGateIsOff()" classname="com.pathongko.skein.bootstrap.ServerHandshakeTest" time="0.01"/>
+  <testcase name="staleClientProtocolVersionIsDeniedBeforeTheWhitelistGate()" classname="com.pathongko.skein.bootstrap.ServerHandshakeTest" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Skein] handshake denied for p1: You are not on this server's whitelist. Ask an admin to add you.
+[Skein] could not read whitelist C:\Users\ASUS\AppData\Local\Temp\junit4647955412771145950\does-not-exist.json: C:\Users\ASUS\AppData\Local\Temp\junit4647955412771145950\does-not-exist.json
+[Skein] handshake denied for p1: You are not on this server's whitelist. Ask an admin to add you.
+[Skein] handshake denied for p1: Your Skein mod version is out of date — please update and rejoin.
+]]></system-err>
+</testsuite>
