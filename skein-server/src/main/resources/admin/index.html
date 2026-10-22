@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pathongko — Pack Admin</title>
+<style>
+  :root{
+    --bg:#0b0d12; --bg2:#0f131a; --panel:#141924; --panel2:#1b2130; --raised:#212838;
+    --border:#262d3d; --border2:#2f3849;
+    --text:#eef1f7; --muted:#93a0b4; --faint:#6b7688;
+    --brand:#7c5cff; --brand2:#5b8cff;
+    --accent:#5b8cff; --ok:#37d399; --warn:#ffb454; --danger:#ff5d6c;
+    --shadow:0 10px 30px rgba(0,0,0,.45); --r:14px; --r2:10px;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#eef1f6; --bg2:#e9edf3; --panel:#ffffff; --panel2:#f4f6fa; --raised:#fff;
+      --border:#e2e7ef; --border2:#d5dce7; --text:#141a24; --muted:#5a6472; --faint:#8b95a5;
+      --shadow:0 10px 30px rgba(20,30,60,.10); }
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0; font:15px/1.55 ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif;
+       color:var(--text); background:
+       radial-gradient(1200px 600px at 15% -10%, rgba(124,92,255,.14), transparent 60%),
+       radial-gradient(1000px 500px at 110% 10%, rgba(91,140,255,.12), transparent 55%),
+       var(--bg); }
+  a{color:var(--accent)}
+  button,input,select{font:inherit}
+  button{cursor:pointer; border:1px solid var(--border2); background:var(--raised); color:var(--text);
+    border-radius:var(--r2); padding:9px 14px; transition:.15s; font-weight:500}
+  button:hover{border-color:var(--brand); transform:translateY(-1px)}
+  button.primary{background:linear-gradient(135deg,var(--brand),var(--brand2)); border:0; color:#fff; font-weight:600;
+    box-shadow:0 6px 18px rgba(124,92,255,.35)}
+  button.ghost{background:transparent}
+  button.sm{padding:5px 10px; font-size:13px}
+  button.danger{color:var(--danger); border-color:transparent; background:transparent}
+  button.danger:hover{border-color:var(--danger); transform:none}
+  input,select{background:var(--panel2); border:1px solid var(--border2); color:var(--text);
+    border-radius:var(--r2); padding:10px 12px; width:100%}
+  input:focus,select:focus{outline:none; border-color:var(--brand); box-shadow:0 0 0 3px rgba(124,92,255,.18)}
+  .brand{display:flex; align-items:center; gap:11px}
+  .mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-weight:800;color:#fff;
+    background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:0 6px 16px rgba(124,92,255,.4); font-size:18px}
+  .brand b{font-size:17px; letter-spacing:-.2px} .brand .sub{color:var(--faint); font-size:12px; margin-top:-2px}
+  .muted{color:var(--muted)} .faint{color:var(--faint)}
+  .hidden{display:none!important}
+
+  /* login */
+  .login{min-height:100%; display:grid; place-items:center; padding:24px}
+  .login .card{width:100%; max-width:380px; background:var(--panel); border:1px solid var(--border);
+    border-radius:var(--r); padding:30px; box-shadow:var(--shadow)}
+  .login .card .brand{margin-bottom:20px}
+  .login input{margin:14px 0}
+
+  /* app shell */
+  .shell{display:grid; grid-template-columns:280px 1fr; min-height:100vh}
+  aside{background:var(--bg2); border-right:1px solid var(--border); padding:18px 14px; display:flex; flex-direction:column; gap:14px}
+  aside .head{display:flex; align-items:center; justify-content:space-between; padding:4px 6px}
+  .srv-list{display:flex; flex-direction:column; gap:6px; overflow:auto}
+  .srv{display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:var(--r2); cursor:pointer;
+    border:1px solid transparent}
+  .srv:hover{background:var(--panel2)}
+  .srv.active{background:var(--panel2); border-color:var(--border2)}
+  .srv .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none;box-shadow:0 0 8px var(--ok)}
+  .srv .n{font-weight:600; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .srv .meta{font-size:12px; color:var(--faint)}
+  aside .foot{margin-top:auto; display:flex; gap:8px}
+
+  main{padding:26px 30px 70px; overflow:auto}
+  .topbar{display:flex; align-items:center; gap:12px; margin-bottom:22px}
+  .topbar .spacer{flex:1}
+  .pill{display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px;
+    background:var(--panel2); border:1px solid var(--border2); font-size:12px; color:var(--muted)}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-bottom:20px}
+  .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--r); padding:16px}
+  .card .k{color:var(--faint); font-size:12px; text-transform:uppercase; letter-spacing:.05em}
+  .card .v{font-size:22px; font-weight:750; margin-top:4px; word-break:break-word}
+  .panel{background:var(--panel); border:1px solid var(--border); border-radius:var(--r); padding:18px; margin-bottom:16px}
+  .panel h3{margin:0 0 12px; font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted)}
+  .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+  .row > .grow{flex:1; min-width:140px}
+
+  table{width:100%; border-collapse:collapse}
+  th,td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--border)}
+  th{color:var(--faint); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em}
+  tr:last-child td{border-bottom:0}
+  td.hash{font-family:ui-monospace,Consolas,monospace; color:var(--faint); font-size:12px}
+  td.size{text-align:right; white-space:nowrap; color:var(--muted)}
+  .cat{display:flex; align-items:center; gap:8px; margin:20px 0 8px; font-weight:700}
+  .badge{font-size:12px; color:var(--faint); font-weight:500; background:var(--panel2); border:1px solid var(--border2);
+    border-radius:999px; padding:2px 9px}
+
+  .empty{display:grid; place-items:center; text-align:center; padding:60px 20px; color:var(--muted)}
+  .empty .big{font-size:40px; margin-bottom:10px}
+
+  .toast{position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(10px);
+    background:var(--raised); border:1px solid var(--border2); border-radius:12px; padding:11px 18px;
+    box-shadow:var(--shadow); opacity:0; transition:.22s; pointer-events:none; font-weight:500}
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+  .toast.err{border-color:var(--danger); color:var(--danger)}
+
+  /* upload */
+  .dropzone{border:2px dashed var(--border2); border-radius:var(--r); padding:24px; text-align:center;
+    background:var(--panel2); transition:.15s; cursor:default}
+  .dropzone.drag{border-color:var(--brand); background:rgba(124,92,255,.10); transform:scale(1.005)}
+  .dz-ico{font-size:26px; margin-bottom:6px}
+  .btn-like{display:inline-flex; align-items:center; gap:6px; cursor:pointer; border:1px solid var(--border2);
+    background:var(--raised); color:var(--text); border-radius:var(--r2); padding:9px 14px; font-weight:500; transition:.15s}
+  .btn-like:hover{border-color:var(--brand); transform:translateY(-1px)}
+  .disabled{opacity:.5; pointer-events:none}
+  .progress{margin-top:12px; height:26px; background:var(--panel2); border:1px solid var(--border2);
+    border-radius:999px; position:relative; overflow:hidden}
+  .progress .bar{height:100%; width:0; border-radius:999px;
+    background:linear-gradient(90deg,var(--brand),var(--brand2)); transition:width .15s}
+  .progress .lbl{position:absolute; inset:0; display:grid; place-items:center; font-size:12px; font-weight:600}
+
+  /* modal */
+  .modal-bg{position:fixed; inset:0; background:rgba(4,6,12,.55); backdrop-filter:blur(3px);
+    display:grid; place-items:center; padding:20px; z-index:20}
+  .modal{width:100%; max-width:440px; background:var(--panel); border:1px solid var(--border2);
+    border-radius:var(--r); padding:22px; box-shadow:var(--shadow)}
+  .modal h3{margin:0 0 4px} .modal .field{margin:12px 0}
+  .modal label{font-size:12px; color:var(--muted); display:block; margin-bottom:5px}
+  .modal .actions{display:flex; gap:10px; justify-content:flex-end; margin-top:18px}
+
+  @media(max-width:760px){ .shell{grid-template-columns:1fr} aside{border-right:0; border-bottom:1px solid var(--border)} }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="login hidden">
+  <div class="card">
+    <div class="brand"><div class="mark">P</div><div><b>Pathongko</b><div class="sub">Pack Admin</div></div></div>
+    <p class="muted" style="margin:0">Sign in to manage your servers.</p>
+    <input id="pw" type="password" placeholder="Admin password" autocomplete="current-password">
+    <button class="primary" style="width:100%" onclick="login()">Sign in</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="shell hidden">
+  <aside>
+    <div class="head">
+      <div class="brand"><div class="mark">P</div><div><b>Pathongko</b><div class="sub">Pack Admin</div></div></div>
+    </div>
+    <button class="primary" onclick="openCreate()">＋ Add server</button>
+    <div class="srv-list" id="srvList"></div>
+    <div class="foot">
+      <button class="ghost sm" style="flex:1" onclick="loadServers()">Refresh</button>
+      <button class="ghost sm" style="flex:1" onclick="logout()">Sign out</button>
+    </div>
+  </aside>
+
+  <main>
+    <div id="mainEmpty" class="empty hidden">
+      <div class="big">🗂️</div>
+      <div>No server selected.</div>
+      <div class="faint" style="margin-top:6px">Add a server to start managing a pack.</div>
+    </div>
+
+    <div id="mainView" class="hidden">
+      <div class="topbar">
+        <div class="brand"><div class="mark" id="srvMark">P</div>
+          <div><b id="srvName">—</b><div class="sub" id="srvDir">—</div></div></div>
+        <div class="spacer"></div>
+        <span class="pill" id="srvPort">:—</span>
+        <span class="pill" id="srvToken">token: —</span>
+        <button class="danger sm" onclick="removeSelected()">Remove server</button>
+      </div>
+
+      <div class="cards" id="cards"></div>
+
+      <div class="panel">
+        <h3>Pack version</h3>
+        <div class="row">
+          <input id="version" class="grow" type="text" placeholder="e.g. 2026.07.05-1">
+          <button class="primary" onclick="saveVersion()">Save version</button>
+          <button onclick="regenerate()">Rescan &amp; regenerate</button>
+        </div>
+        <p class="faint" style="margin:9px 0 0">Any change makes clients re-check on their next join.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Access</h3>
+        <label class="row" style="gap:8px; cursor:pointer">
+          <input id="whitelistGate" type="checkbox" style="width:auto" onchange="setWhitelistGate()">
+          Restrict sync to players on this server's Minecraft whitelist
+        </label>
+        <p class="faint" style="margin:9px 0 0">Applies immediately, and survives a server restart. Only takes effect for the pack embedded in this dedicated server's Minecraft mod — a pack added below via "Add server" (or managed via the standalone CLI) has no Minecraft server of its own to check a player's identity against, so this toggle has no effect there. Even for the mod-embedded pack, the gate only blocks the normal in-game handshake; the client's disconnect-screen "Sync with Skein" fallback talks plain HTTP and isn't checked against the whitelist at all, so set a <code>clientToken</code> in that server's <code>skein-server.properties</code> (not available here in the dashboard) if you actually need to keep a denied player from fetching the pack that way.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Add files</h3>
+        <div id="dropzone" class="dropzone">
+          <div class="dz-ico">⬆️</div>
+          <div><b>Drag &amp; drop</b> files or a whole pack folder here</div>
+          <div class="faint" style="margin-top:2px">Folders keep their structure (<code>mods/</code>, <code>config/</code>, …); loose files go into the category you pick below.</div>
+        </div>
+        <div class="row" style="margin-top:12px">
+          <select id="upCat" style="max-width:160px" onchange="onFilePicked()">
+            <option value="mods">mods</option><option value="config">config</option>
+            <option value="resourcepacks">resourcepacks</option><option value="shaderpacks">shaderpacks</option>
+            <option value="datapacks">datapacks</option>
+          </select>
+          <input id="upPath" class="grow" type="text" placeholder="single-file path (optional), e.g. mods/jei.jar">
+          <input id="upFile" type="file" multiple style="max-width:230px" onchange="onFilePicked()">
+          <button class="primary" onclick="upload()">Upload selected</button>
+          <label class="btn-like">📁 Choose folder<input id="upDir" type="file" webkitdirectory multiple hidden onchange="upload()"></label>
+        </div>
+        <div id="upProgress" class="progress hidden"><div id="upBar" class="bar"></div><div id="upLabel" class="lbl"></div></div>
+      </div>
+
+      <div class="panel">
+        <h3>Files</h3>
+        <div id="files"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- CREATE MODAL -->
+<div id="createModal" class="modal-bg hidden">
+  <div class="modal">
+    <h3>Add server</h3>
+    <p class="faint" style="margin:0">Serves a pack folder on its own port. The folder is created if missing.</p>
+    <div class="field"><label>Name</label><input id="cName" placeholder="survival-smp"></div>
+    <div class="field"><label>Pack directory</label><input id="cDir" placeholder="C:\\servers\\smp\\pack"></div>
+    <div class="field"><label>Public port</label><input id="cPort" type="number" placeholder="25600"></div>
+    <div class="field"><label>Client token <span class="faint">(optional)</span></label><input id="cToken" placeholder="leave blank for none"></div>
+    <div class="actions">
+      <button class="ghost" onclick="closeCreate()">Cancel</button>
+      <button class="primary" onclick="createServer()">Create &amp; start</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const KEY='pathongko_admin_token';
+let token=sessionStorage.getItem(KEY);
+let servers=[], selected=null;
+
+function toast(m,e){const t=document.getElementById('toast');t.textContent=m;t.className='toast show'+(e?' err':'');setTimeout(()=>t.className='toast',2400);}
+function human(n){const u=['B','KB','MB','GB','TB'];let i=0;n=Number(n);while(n>=1024&&i<u.length-1){n/=1024;i++;}return (i===0?n:n.toFixed(1))+' '+u[i];}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+async function api(path,opts={}){
+  opts.headers=Object.assign({'X-Admin-Token':token},opts.headers||{});
+  const res=await fetch('/admin/api/'+path,opts);
+  if(res.status===401){logout();throw new Error('unauthorized');}
+  const txt=await res.text(); const data=txt?JSON.parse(txt):{};
+  if(!res.ok) throw new Error(data.error||('HTTP '+res.status));
+  return data;
+}
+async function login(){
+  try{
+    const res=await fetch('/admin/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:document.getElementById('pw').value})});
+    const data=await res.json(); if(!res.ok) throw new Error(data.error||'login failed');
+    token=data.token; sessionStorage.setItem(KEY,token); show(); loadServers();
+  }catch(e){toast(e.message,true);}
+}
+function logout(){token=null;sessionStorage.removeItem(KEY);selected=null;show();}
+function show(){const a=!!token;document.getElementById('login').classList.toggle('hidden',a);document.getElementById('app').classList.toggle('hidden',!a);}
+
+async function loadServers(){
+  try{
+    servers=await api('servers');
+    if(selected && !servers.find(s=>s.name===selected)) selected=null;
+    if(!selected && servers.length) selected=servers[0].name;
+    renderSidebar();
+    if(selected) loadPack(); else showMain(false);
+  }catch(e){toast(e.message,true);}
+}
+function renderSidebar(){
+  const el=document.getElementById('srvList');
+  if(!servers.length){el.innerHTML='<div class="faint" style="padding:10px 12px">No servers yet.</div>';return;}
+  el.innerHTML=servers.map(s=>`
+    <div class="srv ${s.name===selected?'active':''}" onclick="select('${esc(s.name)}')">
+      <span class="dot"></span>
+      <div style="min-width:0;flex:1">
+        <div class="n">${esc(s.name)}</div>
+        <div class="meta">:${s.port} · ${s.totalFiles} files · ${human(s.totalBytes)}</div>
+      </div>
+    </div>`).join('');
+}
+function select(name){selected=name;renderSidebar();loadPack();}
+function showMain(has){document.getElementById('mainView').classList.toggle('hidden',!has);document.getElementById('mainEmpty').classList.toggle('hidden',has);}
+
+async function loadPack(){
+  try{
+    const p=await api('pack?server='+encodeURIComponent(selected));
+    renderMain(p); showMain(true);
+  }catch(e){toast(e.message,true);}
+}
+function renderMain(p){
+  document.getElementById('srvName').textContent=p.name;
+  document.getElementById('srvMark').textContent=(p.name[0]||'P').toUpperCase();
+  document.getElementById('srvDir').textContent=p.packDir;
+  document.getElementById('srvPort').textContent=':'+p.port;
+  document.getElementById('srvToken').textContent='token: '+(p.clientTokenRequired?'required':'none');
+  document.getElementById('version').value=p.version;
+  document.getElementById('whitelistGate').checked=!!p.whitelistGateEnabled;
+  document.getElementById('cards').innerHTML=[
+    ['Pack id',p.packId],['Version',p.version],['Files',p.totalFiles],
+    ['Total size',human(p.totalBytes)],['Generated',new Date(p.generatedAt).toLocaleString()],
+  ].map(([k,v])=>`<div class="card"><div class="k">${k}</div><div class="v">${esc(v)}</div></div>`).join('');
+  const box=document.getElementById('files');
+  if(!p.categories.length){box.innerHTML='<p class="faint">No files yet — add one above.</p>';return;}
+  box.innerHTML=p.categories.map(c=>`
+    <div class="cat">${esc(c.category)} <span class="badge">${c.files.length}</span></div>
+    <table><thead><tr><th>Path</th><th class="size">Size</th><th>Hash</th><th></th></tr></thead><tbody>
+    ${c.files.map(f=>`<tr><td>${esc(f.path)}</td><td class="size">${human(f.size)}</td>
+      <td class="hash">${esc(f.hash.slice(0,12))}…</td>
+      <td style="text-align:right"><button class="danger sm" onclick="delFile('${esc(f.path)}')">Delete</button></td></tr>`).join('')}
+    </tbody></table>`).join('');
+}
+const MANAGED=['mods','config','resourcepacks','shaderpacks','datapacks'];
+const enc=encodeURIComponent;
+function onFilePicked(){
+  const fs=document.getElementById('upFile').files;
+  document.getElementById('upPath').value = (fs.length===1) ? document.getElementById('upCat').value+'/'+fs[0].name : '';
+}
+// Map any raw path to a pack-relative path by finding the first managed folder in it.
+// e.g. "pack/mods/a.jar" -> "mods/a.jar"; "mods/a.jar" -> "mods/a.jar";
+// a bare "a.jar" (loose file) -> "<selectedCategory>/a.jar"; otherwise null (skip).
+function resolvePath(raw){
+  const segs=String(raw).replace(/^\/+/,'').split('/').filter(Boolean);
+  const i=segs.findIndex(s=>MANAGED.includes(s));
+  if(i>=0) return segs.slice(i).join('/');
+  if(segs.length===1) return document.getElementById('upCat').value+'/'+segs[0];
+  return null;
+}
+function buildItems(src){ // src: [{file, raw}]
+  const items=[], skipped=[];
+  for(const s of src){ const p=resolvePath(s.raw); if(p) items.push({file:s.file,path:p}); else skipped.push(s.raw); }
+  return {items,skipped};
+}
+function planUploads(){
+  const dir=[...document.getElementById('upDir').files];
+  const loose=[...document.getElementById('upFile').files];
+  if(dir.length) return buildItems(dir.map(f=>({file:f,raw:f.webkitRelativePath||f.name})));
+  if(loose.length===1){ const p=document.getElementById('upPath').value.trim(); if(p) return {items:[{file:loose[0],path:p}],skipped:[]}; }
+  return buildItems(loose.map(f=>({file:f,raw:f.name})));
+}
+function showProg(t){document.getElementById('upProgress').classList.remove('hidden');setProg(0,t);}
+function setProg(d,t){const pct=t?Math.round(d/t*100):0;document.getElementById('upBar').style.width=pct+'%';document.getElementById('upLabel').textContent=d+' / '+t+' files ('+pct+'%)';}
+function hideProg(){setTimeout(()=>document.getElementById('upProgress').classList.add('hidden'),700);}
+async function uploadItems(items,skipped){
+  if(!items.length){toast(skipped&&skipped.length?'No files inside managed folders (mods/, config/, …)':'Nothing to upload',true);return;}
+  document.querySelectorAll('button,.btn-like').forEach(b=>b.classList.add('disabled'));
+  showProg(items.length);
+  try{
+    let done=0;
+    for(const it of items){
+      await api('upload?server='+enc(selected)+'&path='+enc(it.path)+'&regen=false',{method:'POST',body:it.file});
+      setProg(++done,items.length);
+    }
+    await api('regenerate?server='+enc(selected),{method:'POST'});
+    let msg='Uploaded '+items.length+' file'+(items.length>1?'s':'');
+    if(skipped&&skipped.length) msg+=' · '+skipped.length+' skipped';
+    toast(msg);
+    ['upFile','upDir','upPath'].forEach(id=>document.getElementById(id).value='');
+    loadPack(); loadServers();
+  }catch(e){toast(e.message,true);}
+  finally{ hideProg(); document.querySelectorAll('button,.btn-like').forEach(b=>b.classList.remove('disabled')); }
+}
+async function upload(){ const {items,skipped}=planUploads(); uploadItems(items,skipped); }
+
+// --- drag & drop (files and folders, recursively) ---
+function readEntry(entry,out){
+  return new Promise(res=>{
+    if(entry.isFile){ entry.file(f=>{ out.push({file:f,raw:entry.fullPath}); res(); }, ()=>res()); }
+    else if(entry.isDirectory){
+      const reader=entry.createReader(); const acc=[];
+      const step=()=>reader.readEntries(ents=>{
+        if(!ents.length){ Promise.all(acc.map(x=>readEntry(x,out))).then(res); }
+        else { acc.push(...ents); step(); }
+      }, ()=>res());
+      step();
+    } else res();
+  });
+}
+async function onDrop(e){
+  e.preventDefault(); document.getElementById('dropzone').classList.remove('drag');
+  const collected=[];
+  const entries=[...(e.dataTransfer.items||[])].map(i=>i.webkitGetAsEntry&&i.webkitGetAsEntry()).filter(Boolean);
+  if(entries.length){ await Promise.all(entries.map(en=>readEntry(en,collected))); }
+  else { for(const f of [...(e.dataTransfer.files||[])]) collected.push({file:f,raw:f.name}); }
+  const {items,skipped}=buildItems(collected);
+  uploadItems(items,skipped);
+}
+function wireDrop(){
+  const dz=document.getElementById('dropzone'); if(!dz) return;
+  ['dragenter','dragover'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add('drag');}));
+  dz.addEventListener('dragleave',e=>{e.preventDefault();dz.classList.remove('drag');});
+  dz.addEventListener('drop',onDrop);
+  window.addEventListener('dragover',e=>e.preventDefault());
+  window.addEventListener('drop',e=>e.preventDefault());
+}
+async function delFile(path){
+  if(!confirm('Delete '+path+'?'))return;
+  try{await api('file/delete?server='+encodeURIComponent(selected),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({path})});
+    toast('Deleted '+path); loadPack(); loadServers();}catch(e){toast(e.message,true);}
+}
+async function saveVersion(){
+  try{await api('version?server='+encodeURIComponent(selected),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({version:document.getElementById('version').value.trim()})});
+    toast('Version saved'); loadPack(); loadServers();}catch(e){toast(e.message,true);}
+}
+async function setWhitelistGate(){
+  const enabled=document.getElementById('whitelistGate').checked;
+  try{await api('whitelist-gate?server='+encodeURIComponent(selected),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({enabled})});
+    toast(enabled?'Whitelist gate on':'Whitelist gate off'); loadPack(); loadServers();}
+  catch(e){document.getElementById('whitelistGate').checked=!enabled; toast(e.message,true);}
+}
+async function regenerate(){try{await api('regenerate?server='+encodeURIComponent(selected),{method:'POST'});toast('Regenerated');loadPack();loadServers();}catch(e){toast(e.message,true);}}
+
+function openCreate(){document.getElementById('createModal').classList.remove('hidden');}
+function closeCreate(){document.getElementById('createModal').classList.add('hidden');}
+async function createServer(){
+  const body={name:val('cName'),dir:val('cDir'),port:val('cPort'),clientToken:val('cToken')};
+  if(!body.name||!body.dir||!body.port){toast('Name, directory and port required',true);return;}
+  try{await api('servers/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    closeCreate(); ['cName','cDir','cPort','cToken'].forEach(id=>document.getElementById(id).value='');
+    selected=body.name; toast('Server created'); loadServers();}catch(e){toast(e.message,true);}
+}
+async function removeSelected(){
+  if(!selected||!confirm('Stop and remove server "'+selected+'"? (files on disk are kept)'))return;
+  try{await api('servers/remove',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:selected})});
+    selected=null; toast('Server removed'); loadServers();}catch(e){toast(e.message,true);}
+}
+function val(id){return document.getElementById(id).value.trim();}
+
+show(); wireDrop(); if(token) loadServers();
+document.getElementById('pw')?.addEventListener('keydown',e=>{if(e.key==='Enter')login();});
+</script>
+</body>
+</html>

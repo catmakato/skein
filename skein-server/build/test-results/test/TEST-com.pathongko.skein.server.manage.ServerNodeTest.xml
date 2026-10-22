@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.server.manage.ServerNodeTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:29" hostname="LAPTOP-I9TEDLCI" time="0.15">
+  <properties/>
+  <testcase name="enablingWritesAMarkerFileUnderThePackDir(Path)" classname="com.pathongko.skein.server.manage.ServerNodeTest" time="0.044"/>
+  <testcase name="aFreshServerNodeRestoresStateFromAnExistingMarkerFile(Path)" classname="com.pathongko.skein.server.manage.ServerNodeTest" time="0.01"/>
+  <testcase name="whenPersistingTheMarkerFileFails_theInMemoryFlagIsNotChanged(Path)" classname="com.pathongko.skein.server.manage.ServerNodeTest" time="0.013"/>
+  <testcase name="defaultsToDisabled(Path)" classname="com.pathongko.skein.server.manage.ServerNodeTest" time="0.011"/>
+  <testcase name="disablingRemovesTheMarkerFile(Path)" classname="com.pathongko.skein.server.manage.ServerNodeTest" time="0.068"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

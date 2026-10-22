@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.server.ManagedPackScaffoldTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:28" hostname="LAPTOP-I9TEDLCI" time="0.136">
+  <properties/>
+  <testcase name="createsPackDirAndEveryCategorySubdirWhenMissing(Path)" classname="com.pathongko.skein.server.ManagedPackScaffoldTest" time="0.065"/>
+  <testcase name="leavesExistingFilesUntouchedWhileFillingInMissingDirs(Path)" classname="com.pathongko.skein.server.ManagedPackScaffoldTest" time="0.069"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

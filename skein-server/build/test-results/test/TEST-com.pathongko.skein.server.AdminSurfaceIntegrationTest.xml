@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.server.AdminSurfaceIntegrationTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:26" hostname="LAPTOP-I9TEDLCI" time="2.248">
+  <properties/>
+  <testcase name="canCreateAndRemoveAnotherServer()" classname="com.pathongko.skein.server.AdminSurfaceIntegrationTest" time="1.143"/>
+  <testcase name="versionBumpIsReflectedInThePublicManifestImmediately()" classname="com.pathongko.skein.server.AdminSurfaceIntegrationTest" time="0.17"/>
+  <testcase name="servesTheDashboardPage()" classname="com.pathongko.skein.server.AdminSurfaceIntegrationTest" time="0.053"/>
+  <testcase name="wrongPasswordIsRejectedAndRightPasswordLogsIn()" classname="com.pathongko.skein.server.AdminSurfaceIntegrationTest" time="0.088"/>
+  <testcase name="pathTraversalIsRejected()" classname="com.pathongko.skein.server.AdminSurfaceIntegrationTest" time="0.072"/>
+  <testcase name="uploadAndDeleteRegeneratesThePack()" classname="com.pathongko.skein.server.AdminSurfaceIntegrationTest" time="0.092"/>
+  <testcase name="listsTheRegisteredServer()" classname="com.pathongko.skein.server.AdminSurfaceIntegrationTest" time="0.215"/>
+  <testcase name="apiRequiresASession()" classname="com.pathongko.skein.server.AdminSurfaceIntegrationTest" time="0.168"/>
+  <testcase name="whitelistGateCanBeToggledAndIsReflectedInPackJson()" classname="com.pathongko.skein.server.AdminSurfaceIntegrationTest" time="0.2"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
