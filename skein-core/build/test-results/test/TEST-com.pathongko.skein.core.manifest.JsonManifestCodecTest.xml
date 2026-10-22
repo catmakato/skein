@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.core.manifest.JsonManifestCodecTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:28" hostname="LAPTOP-I9TEDLCI" time="0.112">
+  <properties/>
+  <testcase name="rootManifestRoundTrips()" classname="com.pathongko.skein.core.manifest.JsonManifestCodecTest" time="0.08"/>
+  <testcase name="encodingIsStableAcrossCalls()" classname="com.pathongko.skein.core.manifest.JsonManifestCodecTest" time="0.01"/>
+  <testcase name="categoryIndexRoundTrips()" classname="com.pathongko.skein.core.manifest.JsonManifestCodecTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.core.domain.PackVersionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:28" hostname="LAPTOP-I9TEDLCI" time="0.008">
+  <properties/>
+  <testcase name="comparesDateBasedVersions()" classname="com.pathongko.skein.core.domain.PackVersionTest" time="0.004"/>
+  <testcase name="equalWhenSegmentsMatch()" classname="com.pathongko.skein.core.domain.PackVersionTest" time="0.001"/>
+  <testcase name="comparesSemverNumericallyNotLexically()" classname="com.pathongko.skein.core.domain.PackVersionTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.core.diff.DiffOptionsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:28" hostname="LAPTOP-I9TEDLCI" time="0.107">
+  <properties/>
+  <testcase name="defaultsHasNoLedger()" classname="com.pathongko.skein.core.diff.DiffOptionsTest" time="0.008"/>
+  <testcase name="additiveOnlyHasNoLedger()" classname="com.pathongko.skein.core.diff.DiffOptionsTest" time="0.002"/>
+  <testcase name="safeRejectsANullLedgerWithANamedException()" classname="com.pathongko.skein.core.diff.DiffOptionsTest" time="0.011"/>
+  <testcase name="safeManagesTheStandardCategoryDirs()" classname="com.pathongko.skein.core.diff.DiffOptionsTest" time="0.029"/>
+  <testcase name="safeCarriesTheGivenLedger()" classname="com.pathongko.skein.core.diff.DiffOptionsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

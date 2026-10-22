@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.core.sync.SyncOrchestratorTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:28" hostname="LAPTOP-I9TEDLCI" time="0.087">
+  <properties/>
+  <testcase name="modChangeRequiresRestart()" classname="com.pathongko.skein.core.sync.SyncOrchestratorTest" time="0.026"/>
+  <testcase name="upToDateSkipsDownloadAndApply()" classname="com.pathongko.skein.core.sync.SyncOrchestratorTest" time="0.023"/>
+  <testcase name="configOnlyChangeDoesNotRequireRestart()" classname="com.pathongko.skein.core.sync.SyncOrchestratorTest" time="0.003"/>
+  <testcase name="downloadFailureBecomesTypedFailureAndSkipsApply()" classname="com.pathongko.skein.core.sync.SyncOrchestratorTest" time="0.005"/>
+  <testcase name="cancellationBeforeDownloadYieldsCancelled()" classname="com.pathongko.skein.core.sync.SyncOrchestratorTest" time="0.003"/>
+  <testcase name="diffComputedCarriesOnlyTheGenuinelyFetchedPathsSeparatelyFromDesiredPaths()" classname="com.pathongko.skein.core.sync.SyncOrchestratorTest" time="0.006"/>
+  <testcase name="diffComputedCarriesTheManifestsDesiredPaths()" classname="com.pathongko.skein.core.sync.SyncOrchestratorTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

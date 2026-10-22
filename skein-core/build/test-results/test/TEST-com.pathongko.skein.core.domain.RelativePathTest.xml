@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.core.domain.RelativePathTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:28" hostname="LAPTOP-I9TEDLCI" time="0.021">
+  <properties/>
+  <testcase name="rejectsAbsolutePath()" classname="com.pathongko.skein.core.domain.RelativePathTest" time="0.002"/>
+  <testcase name="rejectsWindowsDriveOrScheme()" classname="com.pathongko.skein.core.domain.RelativePathTest" time="0.009"/>
+  <testcase name="acceptsNormalRelativePath()" classname="com.pathongko.skein.core.domain.RelativePathTest" time="0.001"/>
+  <testcase name="rejectsParentTraversal()" classname="com.pathongko.skein.core.domain.RelativePathTest" time="0.002"/>
+  <testcase name="normalizesBackslashesToForwardSlashes()" classname="com.pathongko.skein.core.domain.RelativePathTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.core.diff.DefaultDiffEngineTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-08-28T13:32:27" hostname="LAPTOP-I9TEDLCI" time="0.539">
+  <properties/>
+  <testcase name="identicalStateProducesEmptyPlan()" classname="com.pathongko.skein.core.diff.DefaultDiffEngineTest" time="0.389"/>
+  <testcase name="extraFileOutsideManagedDirIsLeftAlone()" classname="com.pathongko.skein.core.diff.DefaultDiffEngineTest" time="0.034"/>
+  <testcase name="extraFileNotInLedgerIsKept()" classname="com.pathongko.skein.core.diff.DefaultDiffEngineTest" time="0.001"/>
+  <testcase name="extraFileUnderManagedDirIsPlannedForDeletion()" classname="com.pathongko.skein.core.diff.DefaultDiffEngineTest" time="0.01"/>
+  <testcase name="classifiesAddUpdateAndUnchanged()" classname="com.pathongko.skein.core.diff.DefaultDiffEngineTest" time="0.032"/>
+  <testcase name="extraFileInLedgerIsPlannedForDeletion()" classname="com.pathongko.skein.core.diff.DefaultDiffEngineTest" time="0.003"/>
+  <testcase name="additiveOnlyNeverDeletes()" classname="com.pathongko.skein.core.diff.DefaultDiffEngineTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
