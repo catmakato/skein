@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.common.json.JsonTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-08-11T10:01:12" hostname="LAPTOP-I9TEDLCI" time="0.663">
+  <properties/>
+  <testcase name="rejectsTrailingContent()" classname="com.pathongko.skein.common.json.JsonTest" time="0.636"/>
+  <testcase name="keysAreSortedForDeterministicOutput()" classname="com.pathongko.skein.common.json.JsonTest" time="0.006"/>
+  <testcase name="roundTripsNestedStructures()" classname="com.pathongko.skein.common.json.JsonTest" time="0.003"/>
+  <testcase name="parsesEscapesAndNumbers()" classname="com.pathongko.skein.common.json.JsonTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
