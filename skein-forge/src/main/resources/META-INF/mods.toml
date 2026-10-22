@@ -1,0 +1,25 @@
+# Forge 1.20.1 mod metadata. Identical to the NeoForge one except the loader
+# dependency is "forge" — a good illustration of how little differs per loader.
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "MIT"
+
+[[mods]]
+modId = "skein"
+version = "${version}"
+displayName = "Skein"
+description = "Automatic, resumable, hash-verified modpack sync."
+
+[[dependencies.skein]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[47,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.skein]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.20.1,1.21)"
+    ordering = "NONE"
+    side = "BOTH"
