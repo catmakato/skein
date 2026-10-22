@@ -1,0 +1,7 @@
+Scanning C:\Users\ASUS\Desktop\Pathongko automod\.\run\demo-pack ...
+  pack:  demo-pack 1.0.0
+  files: 6
+Serving on http://127.0.0.1:25585
+Admin UI: http://127.0.0.1:25585/admin
+Try:  sync http://127.0.0.1:25585 <targetDir>
+Press Ctrl+C to stop.

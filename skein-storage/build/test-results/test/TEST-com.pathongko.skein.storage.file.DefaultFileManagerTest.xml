@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pathongko.skein.storage.file.DefaultFileManagerTest" tests="15" skipped="1" failures="0" errors="0" timestamp="2026-08-28T13:32:22" hostname="LAPTOP-I9TEDLCI" time="2.123">
+  <properties/>
+  <testcase name="stagingPathStaysUnderRoot()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.295"/>
+  <testcase name="rollbackRestoresTheReplacedFile()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.116"/>
+  <testcase name="pruneQuarantineDoesNotFollowADirectoryJunctionNestedInsideAnExpiredBatch()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="1.092"/>
+  <testcase name="pruneQuarantineRemovesABatchOneMillisecondPastMaxAge()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.018"/>
+  <testcase name="pruneQuarantineLeavesASymlinkedEntryAloneAndDoesNotFollowIt()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.157">
+    <skipped/>
+  </testcase>
+  <testcase name="pruneQuarantineSkipsAnEntryWithAnUnparseableEpochPrefixButStillPrunesAGenuinelyOldBatch()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.064"/>
+  <testcase name="commitAtomicallyPlacesTheStagedFile()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.038"/>
+  <testcase name="pruneQuarantineKeepsABatchWithinMaxAge()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.014"/>
+  <testcase name="replacingAFileQuarantinesTheOldOne()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.044"/>
+  <testcase name="pruneQuarantineRemovesABatchOlderThanMaxAge()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.026"/>
+  <testcase name="quarantineMovesLiveFileAside()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.032"/>
+  <testcase name="pruneQuarantineKeepsABatchExactlyAtMaxAge()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.019"/>
+  <testcase name="pruneQuarantineIsANoOpWhenQuarantineRootDoesNotExist()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.008"/>
+  <testcase name="pruneQuarantineOnlyRemovesTheOldBatchWhenAYoungOneIsAlsoPresent()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.047"/>
+  <testcase name="pruneQuarantineLeavesAnEntryThatDoesNotMatchTheBatchNamingPatternAlone()" classname="com.pathongko.skein.storage.file.DefaultFileManagerTest" time="0.049"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

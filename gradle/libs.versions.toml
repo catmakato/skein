@@ -1,0 +1,15 @@
+# Gradle Version Catalog — single source of truth for dependency versions.
+# Keeps versions out of individual build scripts (design principle: no hardcode).
+
+[versions]
+junit = "5.10.2"
+assertj = "3.25.3"
+archunit = "1.3.0"
+
+[libraries]
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+archunit-junit5 = { module = "com.tngtech.archunit:archunit-junit5", version.ref = "archunit" }
+
+[bundles]
+testing = ["junit-jupiter", "assertj-core"]
